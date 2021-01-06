@@ -8,6 +8,16 @@
     <h4>Thank you for your order!</h4>
   </div>
 
+  <tbody>
+  <% @product = [] %>
+    <% @order.line_items.each { 
+      |item| @product.push(Product.find(item.product_id))
+      } 
+    %>
+    <% @product.each do |item| %>
+    <%= render 'item', product: item  %>
+    <% end %> 
+  </tbody>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
