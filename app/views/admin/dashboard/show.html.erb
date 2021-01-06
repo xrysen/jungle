@@ -4,11 +4,11 @@
     <table class = "table table-striped">
       <tbody>
         <tr>
-          <th scope="row">Total Products</th>
+          <th scope="row"><%= link_to 'Total Products',  [:admin, :products] %></th>
           <td scope="row"><%= @product_count %></td>
         </tr>
         <tr>
-          <th scope="row">Total Categories</th>
+          <th scope="row"><%= link_to 'Total Categories', :root %></th>
           <td scope="row"><%= @category_count %></td>
         </tr>
       </tbody>
