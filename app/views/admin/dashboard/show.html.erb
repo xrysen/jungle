@@ -1,4 +1,17 @@
-<h1>Total Products</h1>
-<p><%= @product_count %></p>
-<h1>Total Categories</h1>
-<p><%= @category_count %></p>
+<main class = "container">
+<div class="order-summary jumbotron">
+    <h2 style = "text-align:center">Admin Dashboard</h2>
+    <table class = "table table-striped">
+      <tbody>
+        <tr>
+          <th scope="row">Total Products</th>
+          <td scope="row"><%= @product_count %></td>
+        </tr>
+        <tr>
+          <th scope="row">Total Categories</th>
+          <td scope="row"><%= @category_count %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
