@@ -47,7 +47,15 @@ RSpec.describe User, type: :model do
 
   describe ".authenticate_with_credentials" do
     it "Should log in with valid credentials" do
-      expect(session).to be_present
+      User.create!(first_name: "Sean", last_name: "Oyler", email: "sean@sean.com", password: "password", password_confirmation: "password")
+      user = User.authenticate_with_credentials("sean@sean.com", "password")
+      expect(user).to be_truthy
+    end
+
+    it "should not log in with invalid credentials" do
+      User.create!(first_name: "Sean", last_name: "Oyler", email: "sean@sean.com", password: "password", password_confirmation: "password")
+      user = User.authenticate_with_credentials("sean@sean.com", "password123")
+      expect(user).to be_falsey
     end
   end
 end
