@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-#params.require(:user).permit(:name, :email, :password, :password_confirmation)
-
 RSpec.describe User, type: :model do
   describe "User Validation" do
     it "must be created with password and password confirmation" do
@@ -13,13 +11,6 @@ RSpec.describe User, type: :model do
     it "Passowrd and password confirmation should match" do
       @user = User.new(first_name: "Sean", last_name: "Oyler", email: "sean@gmail.com", password: "password123", password_confirmation: "password124")
       expect(@user).to_not be_valid
-    end
-
-    #-- Come back to this
-    it "Must use unique email when signing up" do
-      @user = User.new(first_name: "Sean", last_name: "Oyler", email: "sean@gmail.com", password: "password123", password_confirmation: "password123")
-      email = @user.email.downcase
-      expect(User.where(email: email)).to_not exist
     end
 
     it "Must contain a first name" do
@@ -40,7 +31,17 @@ RSpec.describe User, type: :model do
       expect(@user).to_not be_valid
     end
 
+    it "Email address must be unique" do
+      User.create!(first_name: "Sean", last_name: "Oyler", email: "sean@sean.com", password: "password", password_confirmation: "password")
+      @user = User.new(first_name: "Sean", last_name: "Doe", email: "sean@sean.com", password: "password", password_confirmation: "password")
+      expect(@user).to_not be_valid
+      expect(@user.errors.messages).to include(email: ["Email already exists"])
+    end
+
     it "password must have a minimum length greater than 3" do
+      @user = User.new(first_name: "Sean", last_name: "Oyler", email: "sean@gmail.com", password: "pas", password_confirmation: "pas")
+      
+      expect(@user).to_not be_valid
     end
   end
 end
