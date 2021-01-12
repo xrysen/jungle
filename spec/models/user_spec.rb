@@ -44,4 +44,10 @@ RSpec.describe User, type: :model do
       expect(@user).to_not be_valid
     end
   end
+
+  describe ".authenticate_with_credentials" do
+    it "Should log in with valid credentials" do
+      expect(session).to be_present
+    end
+  end
 end
