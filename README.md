@@ -2,6 +2,11 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+The codebase was inherited and new features were added such as showing when an item is sold out, an order summary page, user registration and authentication,
+securiy for admin access (only admins can add products and categories), minor bug fixes
+
+## screenshots
+
 
 ## Setup
 
