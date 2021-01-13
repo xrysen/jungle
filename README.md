@@ -3,10 +3,13 @@
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
 The codebase was inherited and new features were added such as showing when an item is sold out, an order summary page, user registration and authentication,
-securiy for admin access (only admins can add products and categories), minor bug fixes
+security for admin access (only admins can add products and categories), as well as minor bug fixes.
 
 ## screenshots
 
+![Main Page](https://github.com/xrysen/jungle/blob/master/docs/ss1.png?raw=true)
+![Filled Cart](https://github.com/xrysen/jungle/blob/master/docs/ss2.png?raw=true)
+![Order Confirmation](https://github.com/xrysen/jungle/blob/master/docs/ss3.png?raw=true)
 
 ## Setup
 
